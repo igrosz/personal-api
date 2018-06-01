@@ -15,7 +15,7 @@ class InstitutionsTableSeeder extends Seeder
         DB::table('institutions')->insert([
             
             ['title' => 'BMG',
-            'diplomas' => 'bachlers in Talmudic studies, masters in Rabinical and Talmudic studies',
+            'diplomas' => 'bachelors in Talmudic studies, masters in Rabinical and Talmudic studies',
         ],
         ['title' => 'PCS',
         'diplomas' => 'html,css,js,php',
