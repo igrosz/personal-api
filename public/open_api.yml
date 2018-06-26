@@ -1,0 +1,234 @@
+openapi: "3.0.1"
+info: 
+  title: 'Isaac Grosz'
+  description: 'All my personal information.'
+  version: '2.5'
+  termsOfService: https://openweathermap.org/terms
+  contact:
+    name: Isaac Grosz
+    url: https://openweathermap.org/api
+    email: isaacgrosz@gmail.com
+  license:
+    name: "CC Attribution-ShareAlike 4.0 (CC BY-SA 4.0)"
+    url: https://openweathermap.org/price
+servers:
+  - url: http://igapi.com/
+paths:
+  
+  /institutions:
+    get:
+      tags:
+      - Institutions
+      summary: "Returns my institutions"
+      operationId: "getInstitutions"
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json: 
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array      
+                    items:
+                      type: object    
+                      properties:        
+                        type:
+                          type: string 
+                        id:
+                          type: string 
+                        attributes:
+                          type: object 
+                          properties: 
+                            title:
+                              type: string
+                            
+        404:
+          description: Not found response
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/404'
+        405:
+          description: Method Not Allowed Response
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/405'
+        default:
+          description: Unexpected error
+          
+  /institutions/id:
+    get:
+      tags:
+      - Institutions/id
+      summary: "Returns the institution"
+      operationId: "getTheInstitution"
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json: 
+              schema:
+                type: object
+                properties:
+                  data:
+                    
+                      type: object    
+                      properties:        
+                        type:
+                          type: string 
+                        id:
+                          type: string 
+                        attributes:
+                          type: object 
+                          properties: 
+                            title:
+                              type: string
+                            diplomas:
+                              type: string
+        404:
+          description: Not found response
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/404'
+        405:
+          description: Method Not Allowed Response
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/405'
+        default:
+          description: Unexpected error
+                  
+  /projects:
+    get:
+      tags:
+      - projects
+      summary: "Returns my projects"
+      operationId: "getProjects"
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json: 
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array      
+                    items:
+                      type: object    
+                      properties:        
+                        type:
+                          type: string 
+                        id:
+                          type: string 
+                        attributes:
+                          type: object 
+                          properties: 
+                            title:
+                              type: string
+                            
+                            
+        404:
+          description: Not found response
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/404'
+        405:
+          description: Method Not Allowed Response
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/405'
+        default:
+          description: Unexpected error     
+          
+  /projects/id:
+    get:
+      tags:
+      - projects/id
+      summary: "Returns the project"
+      operationId: "getTheProject"
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json: 
+              schema:
+                type: object
+                properties:
+                  data:
+                    
+                      type: object    
+                      properties:        
+                        type:
+                          type: string 
+                        id:
+                          type: string 
+                        attributes:
+                          type: object 
+                          properties: 
+                            title:
+                              type: string
+                            description:           
+                              type: string
+                            start_date:  
+                              type: string
+                            
+        404:
+          description: Not found response
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/404'
+        405:
+          description: Method Not Allowed Response
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/405'
+        default:
+          description: Unexpected error             
+            
+components:
+  schemas:
+    404:
+      type: object
+      properties:
+        errors:
+          type: array      
+          items:
+            type: object    
+            properties:
+              status:
+                type: string
+              source: 
+                type: object
+                properties:
+                  pointer:
+                    type: string
+              detail:
+                type: string
+    405:
+      type: object
+      properties:
+        errors:
+          type: array      
+          items:
+            type: object    
+            properties:
+              status:
+                type: string
+              source: 
+                type: object
+                properties:
+                  pointer:
+                    type: string
+              detail:
+                type: string
+    
